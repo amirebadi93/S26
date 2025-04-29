@@ -1,0 +1,107 @@
+@font-face {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  src: url(./assets/Proxima.otf);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+#root {
+  text-align: center;
+}
+.container {
+  width: 30vw;
+  margin: auto;
+  border: solid gray 1px;
+  padding: 20px;
+  border-radius: 20px;
+}
+form {
+  width: 100%;
+}
+.form > input {
+  border: gray solid 1px;
+  width: 50%;
+  height: 30px;
+  margin: 15px;
+  padding: 5px 15px;
+  font-size: 24px;
+  border-radius: 10px;
+}
+.form > button {
+  padding: 5px 10px;
+  background: #2a7b9b;
+  background: linear-gradient(
+    90deg,
+    rgba(42, 123, 155, 1) 0%,
+    rgba(42, 123, 155, 1) 49%,
+    rgba(255, 255, 255, 1) 52%,
+    rgba(237, 83, 168, 1) 56%,
+    rgba(237, 83, 168, 1) 100%
+  );
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 250% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form > button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+  margin: 10px 0;
+}
+.button-holder {
+  position: relative;
+}
+button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  cursor: pointer;
+}
+button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(218, 66, 66);
+  transition: all ease-in-out 0.2s;
+}
+.button-holder:hover button::after {
+  width: 100%;
+  left: 0;
+}
