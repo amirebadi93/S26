@@ -32,9 +32,6 @@ function Home() {
           add
         </button>
       </div>
-      <span>
-        {item}
-      </span>
       <div className="todo-list">
         <ul>
           {list.map((item, index) =>
