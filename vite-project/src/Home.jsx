@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Home.css";
 
 function Home() {
-  const [value, setValue] = useState();
+  const [item, setItem] = useState();
   const [list, setList] = useState(["Test", "test1", "test2"]);
   const handleRemove = index => {
     const newList = list.filter((_, i) => i !== index);
@@ -14,34 +14,40 @@ function Home() {
       <div className="form">
         <input
           type="text"
-          value={value}
+          value={item}
           onChange={e => {
             const tempValue = e.target.value;
-            setValue(tempValue);
+            setItem(tempValue);
           }}
         />
 
         <button
           onClick={() => {
             const updatedList = [...list];
-            updatedList.push(value);
+            updatedList.push(item);
             setList(updatedList);
-            setValue("");
+            setItem("");
           }}
         >
           add
         </button>
       </div>
+      <span>
+        {item}
+      </span>
       <div className="todo-list">
         <ul>
           {list.map((item, index) =>
             <div className="list-item" key={index}>
+
               <li>
                 {item}
               </li>
+
               <div className="button-holder">
                 <button onClick={() => handleRemove(index)}>Remove</button>
               </div>
+
             </div>
           )}
         </ul>

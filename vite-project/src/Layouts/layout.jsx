@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Layout.css"
+import "./Layout.css";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -8,18 +8,41 @@ import {
   VideoCameraOutlined
 } from "@ant-design/icons";
 import { Button, Flex, Layout, Menu, theme } from "antd";
+import { useNavigate } from "react-router";
 const { Header, Sider, Content } = Layout;
 const MainLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { token: { colorBgContainer, borderRadiusLG } } = theme.useToken();
+  const navigate = useNavigate();
   return (
-    <Layout style={{minHeight: "100vh" , margin:"0", borderRadius:""}}>
-      <Sider trigger={null} collapsible collapsed={collapsed} style={{borderTopLeftRadius:"20px", borderBottomLeftRadius: " 20px"}}>
+    <Layout style={{ minHeight: "100vh", margin: "0", borderRadius: "" }}>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        style={{ borderTopLeftRadius: "20px", borderBottomLeftRadius: " 20px" }}
+      >
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
+          onClick={({ key }) => {
+            switch (key) {
+              case "1":
+                navigate("/");
+                break;
+              case "2":
+                navigate("/about");
+                break;
+              case "3":
+                // This route doesn't exist yet, but we'll prepare for it
+                navigate("/contact");
+                break;
+              default:
+                navigate("/");
+            }
+          }}
           items={[
             { key: "1", icon: <UserOutlined />, label: "Todo-List" },
             { key: "2", icon: <VideoCameraOutlined />, label: "About Us" },
